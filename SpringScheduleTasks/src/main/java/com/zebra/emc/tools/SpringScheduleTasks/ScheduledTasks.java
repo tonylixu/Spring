@@ -7,7 +7,11 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by TQGF87 on 3/20/2017.
+ * Indicate that the ScheduledTasks class is considered as candidates for auto-detection when
+ * using annotation-based configuration and classpath scanning.
+ *
+ * The @Component marks ScheduleTasks class as a bean so that the component-scanning mechanism of
+ * spring can pick it up and pull it into the application context.
  */
 @Component
 public class ScheduledTasks {
