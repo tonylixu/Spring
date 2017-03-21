@@ -18,7 +18,6 @@ public class Customer {
         return String.format(
             "Customer[id=%d, firstName='%s', lastName='%s']",
             id, firstName, lastName);
-        )
     }
 
     // getters and setters omitted for brevity
