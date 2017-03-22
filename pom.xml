@@ -9,6 +9,7 @@
     <module>SpringScheduleTasks</module>
     <module>SpringRdbmAccess</module>
     <module>SpringMockitoExample</module>
+    <module>SpringUploadFiles</module>
   </modules>
 
   <parent>
