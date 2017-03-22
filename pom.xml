@@ -8,6 +8,7 @@
     <module>SpringRestWebService</module>
     <module>SpringScheduleTasks</module>
     <module>SpringRdbmAccess</module>
+    <module>SpringMockitoExample</module>
   </modules>
 
   <parent>
@@ -19,5 +20,9 @@
   <groupId>com.zebra.emc.tools</groupId>
   <artifactId>SpringProjects</artifactId>
   <version>1.0-SNAPSHOT</version>
+
+  <properties>
+    <java.version>1.8</java.version>
+  </properties>
 
 </project>
