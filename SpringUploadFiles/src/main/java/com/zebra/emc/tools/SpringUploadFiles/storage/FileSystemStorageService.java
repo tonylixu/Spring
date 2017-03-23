@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -21,18 +22,23 @@ public class FileSystemStorageService implements StorageService {
 
     private final Path rootLocation;
 
+    public static final Logger log = Logger.getLogger(FileSystemStorageService.class);
+
     @Autowired
     public FileSystemStorageService(StorageProperties properties) {
+        // Convert a properties location string to a Path object
         this.rootLocation = Paths.get(properties.getLocation());
+        log.info("this.rootLocation is " + this.rootLocation.toString());
     }
 
     @Override
     public void store(MultipartFile file) {
         try {
             if (file.isEmpty()) {
-                throw new StorageException("Failed to store empty file " + file
-                    .getOriginalFilename());
+                throw new StorageException("Failed to store empty file " +
+                    file.getOriginalFilename());
             }
+            // Copy from inputSteam to target Path
             Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename
                 ()));
         } catch (IOException e) {
@@ -53,8 +59,9 @@ public class FileSystemStorageService implements StorageService {
 
     @Override
     public Path load(String filename) {
-        // Return absolute path of filename
-        return rootLocation.resolve(filename);
+        Path resolved_path = rootLocation.resolve(filename);
+        log.info("load filename path is " + resolved_path.toString());
+        return resolved_path;
     }
 
     @Override

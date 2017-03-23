@@ -3,7 +3,7 @@ package com.zebra.emc.tools.SpringUploadFiles.storage;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * Created by Tony Li Xu on 3/22/2017.
+ * @ConfigurationProperties - Letting developer maps the entire file into an object
  */
 @ConfigurationProperties("storage")
 public class StorageProperties {

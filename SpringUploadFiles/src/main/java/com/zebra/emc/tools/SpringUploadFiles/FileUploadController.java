@@ -21,18 +21,22 @@ import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBui
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
- * Created by Tony Li Xu on 3/22/2017.
+ * @Controller: Indicate that FileUploadController is a web controller.
  */
 @Controller
 public class FileUploadController {
 
     private final StorageService storageService;
 
+    // Let Spring handles property configurations injecting for storageService Bean
     @Autowired
     public FileUploadController(StorageService storageService) {
         this.storageService = storageService;
     }
 
+    /*
+     * @GetMapping - mapping HTTP GET requests onto "/"
+     */
     @GetMapping("/")
     public String listUploadedFiles(Model model) throws IOException {
 
