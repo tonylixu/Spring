@@ -27,6 +27,12 @@
 
   <build>
     <plugins>
+      <!-- The Spring Boot Maven Plugin does:
+        1. Collects all the jars on the classpath and build a single, runnable uber-jar
+        2. Searches for main() method to flag as a runnable
+        3. Provides a built-in dependency resolver that set the version number to mach Spring
+        boot dependencies.
+        -->
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>sprint-boot-maven-plugin</artifactId>
