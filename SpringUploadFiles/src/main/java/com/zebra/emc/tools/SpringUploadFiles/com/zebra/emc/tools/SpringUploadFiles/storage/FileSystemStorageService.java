@@ -45,4 +45,11 @@ public class FileSystemStorageService implements StorageService {
             throw new StorageException("Failed to read stored files", e);
         }
     }
+
+    @Override
+    public Path load(String filename) {
+        return rootLocation.resolve(filename);
+    }
+
+
 }
