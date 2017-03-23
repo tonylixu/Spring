@@ -1,4 +1,4 @@
-package com.zebra.emc.tools.SpringUploadFiles.com.zebra.emc.tools.SpringUploadFiles.storage;
+package com.zebra.emc.tools.SpringUploadFiles.storage;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -6,9 +6,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -19,8 +21,8 @@ public class FileSystemStorageService implements StorageService {
 
     private final Path rootLocation;
 
-    @Autowiredpublic
-    FileSystemStorageService(StorageProperties properties) {
+    @Autowired
+    public FileSystemStorageService(StorageProperties properties) {
         this.rootLocation = Paths.get(properties.getLocation());
     }
 
@@ -66,7 +68,21 @@ public class FileSystemStorageService implements StorageService {
                 throw new StorageFileNotFoundException(("Could not read file: " + filename));
             }
         } catch (MalformedURLException e) {
-            thorw new StorageFileNotFoundException("Could not read file: " + filename, e);
+            throw new StorageFileNotFoundException("Could not read file: " + filename, e);
+        }
+    }
+
+    @Override
+    public void deleteAll() {
+        FileSystemUtils.deleteRecursively(rootLocation.toFile());
+    }
+
+    @Override
+    public void init() {
+        try {
+            Files.createDirectory(rootLocation);
+        } catch (IOException e) {
+            throw new StorageException("Could not initialize storage", e);
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.zebra.emc.tools.SpringUploadFiles.com.zebra.emc.tools.SpringUploadFiles.storage;
+package com.zebra.emc.tools.SpringUploadFiles.storage;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
