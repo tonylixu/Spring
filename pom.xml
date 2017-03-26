@@ -10,7 +10,7 @@
         <module>SpringRdbmAccess</module>
         <module>SpringMockitoExample</module>
         <module>SpringUploadFiles</module>
-        <module>SrpingJDBC</module>
+        <module>SpringJDBC</module>
     </modules>
 
     <parent>
