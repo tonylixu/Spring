@@ -11,6 +11,7 @@
         <module>SpringMockitoExample</module>
         <module>SpringUploadFiles</module>
         <module>SpringJDBC</module>
+        <module>SpringRedis</module>
     </modules>
 
     <parent>
