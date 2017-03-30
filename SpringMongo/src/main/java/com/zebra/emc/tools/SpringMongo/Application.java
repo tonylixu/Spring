@@ -1,0 +1,51 @@
+package com.zebra.emc.tools.SpringMongo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+/**
+ * @SpringBootApplication: - @Configuration: Indicates that this class can be used by IoC container.
+ * - @EnableAutoConfiguration: Automatically configure Spring app based on jar dependencies. -
+ * @ComponentScan: Equivalent for "context:component-scan", specify the base packages to scan. So
+ * that the web controller classes and other components will be auto-discovered and registered as
+ * beans in Spring application context.
+ */
+@SpringBootApplication
+public class Application implements CommandLineRunner {
+
+    @Autowired
+    private CustomerRepository customerRepository;
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        customerRepository.deleteAll();
+
+        // Save a couple of customers
+        customerRepository.save(new Customer("Alice", "Smith"));
+        customerRepository.save(new Customer("Bob", "Smith"));
+
+        // Fetch all customers
+        System.out.println("Customers found with findAll():");
+        System.out.println("-------------------------------");
+        for (Customer customer : customerRepository.findAll()) {
+            System.out.println(customer);
+        }
+
+        // Fetch an individual customer
+        System.out.println("Customer found with findByFirstName('Alice'):");
+        System.out.println("--------------------------------");
+        System.out.println(customerRepository.findByFirstName("Alice"));
+
+        System.out.println("Customer found with findByLastName('Smith'):");
+        System.out.println("--------------------------------");
+        for (Customer customer : customerRepository.findByLastName("Smith")) {
+            System.out.println(customer);
+        }
+    }
+}

@@ -29,6 +29,16 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
     <!-- A plugin is a tool you use at the execution of your maven build. Foe example, the
     compiler plugin compiles your Java code into Bytecode. A normal dependency are artifacts you
     use in your application like libraries.
