@@ -29,4 +29,24 @@
         </dependency>
     </dependencies>
 
+    <!-- A plugin is a tool you use at the execution of your maven build. Foe example, the
+    compiler plugin compiles your Java code into Bytecode. A normal dependency are artifacts you
+    use in your application like libraries.
+     -->
+    <repositories>
+        <repository>
+            <!-- Spring lib release in Artifactory -->
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release</url>
+        </pluginRepository>
+    </pluginRepositories>
+
 </project>
