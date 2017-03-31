@@ -13,6 +13,8 @@
         <module>SpringJDBC</module>
         <module>SpringRedis</module>
         <module>SpringConvertJarToWar</module>
+        <module>SpringMongo</module>
+        <module>SpringMongoDBRest</module>
     </modules>
 
     <parent>
