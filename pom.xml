@@ -13,7 +13,10 @@
         <module>SpringJDBC</module>
         <module>SpringRedis</module>
         <module>SpringConvertJarToWar</module>
+<<<<<<< HEAD
         <module>SpringMongo</module>
+=======
+>>>>>>> e4580b8fc2f56d2d604dc4aa633f1fe6d301c26a
         <module>SpringMongoDBRest</module>
     </modules>
 
