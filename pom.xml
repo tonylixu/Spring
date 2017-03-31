@@ -12,6 +12,7 @@
         <module>SpringUploadFiles</module>
         <module>SpringJDBC</module>
         <module>SpringRedis</module>
+        <module>SpringConvertJarToWar</module>
     </modules>
 
     <parent>
