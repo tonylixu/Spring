@@ -15,6 +15,7 @@
         <module>SpringConvertJarToWar</module>
         <module>SpringMongo</module>
         <module>SpringMongoDBRest</module>
+        <module>SpringRabbitMQ</module>
     </modules>
 
     <parent>
